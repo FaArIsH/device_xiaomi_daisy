@@ -7,104 +7,113 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.deep_buffer.media=true \
-    ro.af.client_heap_size_kbyte=7168 \
-    ro.config.media_vol_steps=25 \
-    ro.config.vc_call_vol_steps=7
+    ro.config.media_vol_steps=28 \
+    ro.config.vc_call_vol_steps=9
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.bluetooth.soc=cherokee
+    bluetooth.hfp.client=1
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    camera.disable_zsl_mode=true \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap \
-    persist.vendor.camera.perfcapture=1 \
+    persist.vendor.camera.display.umax=1920x1080 \
+    persist.vendor.camera.display.lmax=1280x720 \
+    vidc.enc.dcvs.extra-buff-count=2 \
+    vendor.camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
+    vendor.camera.lowpower.record.enable=1 \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.huaqin.factory,com.mi.AutoTest \
+    vendor.camera.aux.packagelist2=com.android.systemui,com.huaqin.cameraautotest,com.huaqin.runtime \
     persist.camera.HAL3.enabled=1
 
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
-    persist.vendor.dpm.feature=1 \
-    persist.vendor.dpm.loglevel=0 \
-    persist.vendor.dpm.nsrm.bkg.evt=3955
+    persist.dpm.feature=1
 
-# Data modules
+# Coresight
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.vendor.data.profile_update=true \
-    persist.vendor.data.mode=concurrent \
-    ro.vendor.use_data_netmgrd=true
+    persist.debug.coresight.config=stm-events
 
-# Display post-processing
+# Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.gralloc.enable_fb_ubwc=1 \
+    debug.enable.sglscale=1 \
+    debug.egl.hw=0 \
+    debug.mdpcomp.logs=0 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.hw=0 \
+    debug.sf.latch_unsignaled=1 \
+    debug.sf.recomputecrop=0 \
+    dev.pm.dyn_samplingrate=1 \
+    persist.debug.wfd.enable=1 \
+    persist.demo.hdmirotationlock=false \
+    persist.hwc.mdpcomp.enable=true \
+    persist.hwc.enable_vds=1 \
     ro.qualcomm.cabl=2 \
-    ro.vendor.display.ad=1 \
-    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
-    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
-    ro.vendor.display.sensortype=2
+    ro.vendor.display.cabl=2 \
+    sdm.debug.disable_skip_validate=1 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.display.enable_default_color_mode=1 \
+    vendor.gralloc.enable_fb_ubwc=1
 
-# Display density
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=420
-
-# FingerPrint Enabler
+# Fingerprint Enabler
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.qfp=false
 
-# Graphics
+# FM
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.disable_backpressure=1 \
-    debug.sf.enable_hwc_vds=1 \
-    sdm.debug.disable_inline_rotator=1 \
-    sdm.debug.disable_inline_rotator_secure=1
+    ro.fm.transmitter=false
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.video=true \
-    media.settings.xml=/system/etc/media_profiles_vendor.xml
+    av.debug.disable.pers.cache=1 \
+    media.aac_51_output_enabled=true \
+    media.msm8956hw=0 \
+    mm.enable.smoothstreaming=true \
+    mmp.enable.3g2=true \
+    vendor.mm.enable.qcom_parser=1048575 \
+    vendor.vidc.dec.downscalar_width=1920 \
+    vendor.vidc.dec.downscalar_height=1088 \
+    vendor.vidc.enc.disable.pq=true \
+    vendor.vidc.disable.split.mode=1 \
+    vendor.vidc.enc.disable_bframes=1 \
+    vendor.video.disable.ubwc=1
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true
 
-# Netflix custom property
+# Netmgrd
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q845-05000-1
+    persist.data.netmgrd.qos.enable=true \
+    ro.vendor.use_data_netmgrd=true \
+    persist.vendor.data.mode=concurrent
 
-# Perf
+# Nitz
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.core_ctl_min_cpu=2 \
-    ro.vendor.qti.core_ctl_max_cpu=4
+    persist.rild.nitz_plmn="" \
+    persist.rild.nitz_long_ons_0="" \
+    persist.rild.nitz_long_ons_1="" \
+    persist.rild.nitz_long_ons_2="" \
+    persist.rild.nitz_long_ons_3="" \
+    persist.rild.nitz_short_ons_0="" \
+    persist.rild.nitz_short_ons_1="" \
+    persist.rild.nitz_short_ons_2="" \
+    persist.rild.nitz_short_ons_3=""
 
-#QTI Performance
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.enable_prefetch=1 \
-    vendor.iop.enable_uxe=1 \
-    vendor.iop.enable_prefetch_ofr=1 \
-    vendor.perf.iop_v3.enable=1 \
-    ro.vendor.at_library=libqti-at.so \
-    persist.vendor.qti.games.gt.prof=1
-
-# RCS and IMS
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.rcs.supported=0 \
-    persist.vendor.ims.disableUserAgent=0
-
-# RIL
+# Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
-    persist.vendor.radio.atfwd.start=true \
-    persist.vendor.radio.flexmap_type=none \
-    persist.vendor.radio.force_on_dc=true \
-    persist.vendor.radio.redir_party_num=1 \
-    persist.vendor.radio.report_codec=1 \
     ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=22,22 \
-    telephony.lteOnCdmaDevice=1
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    rild.libargs=-d/dev/smd0 \
+    ro.telephony.default_network=22,20
 
-# SSR
+# Time Services
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.ssr.enable_ramdumps=0 \
-    persist.vendor.ssr.restart_level=ALL_ENABLE
+    persist.timed.enable=true
+
+# UI BOOSTER
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_fifo_ui=1
