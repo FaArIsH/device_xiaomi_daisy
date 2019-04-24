@@ -111,6 +111,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
+# Power
+PRODUCT_PACKAGES += \
+    power.msm8953
+
 # Offmode charging
 PRODUCT_PACKAGES += \
     chargeonlymode
