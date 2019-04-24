@@ -17,7 +17,7 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
 
 # Properties
--include $(LOCAL_PATH)/device-props.mk
+-include $(LOCAL_PATH)/system.prop
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
