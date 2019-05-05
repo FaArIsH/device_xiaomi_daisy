@@ -556,4 +556,7 @@
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">89.0px</dimen>
     <dimen name="status_bar_height_landscape">24.0dp</dimen>
+
+    <!-- Whether to enable smart clock feature -->
+    <bool name="config_enableSmartClock">true</bool>
 </resources>
