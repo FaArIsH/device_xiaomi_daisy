@@ -9,7 +9,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/daisy/daisy-vendor.mk)
+$(call inherit-product, vendor/xiaomi/daisy/daisy-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
