@@ -51,6 +51,11 @@ on property:persist.vendor.sys.ssr.enable_ramdumps=0
 on property:sys.boot_completed=1
     stop vendor.ss_ramdump
 
+# fingerprint-goodix
+service goodix_script /vendor/bin/init.goodix.sh
+    class late_start
+    user root
+
     # Runtime FS tuning: as we have init boottime setting and kernel patch setting
     # default readahead to 2048KB. We should adjust the setting upon boot_complete
     # for runtime performance
